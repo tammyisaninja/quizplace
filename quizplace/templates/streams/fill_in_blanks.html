@@ -1,0 +1,16 @@
+{% load wagtailimages_tags %}
+
+<div class="container">
+    <h3>Fill in the blanks</h3>
+    <h4>{{ self.first_part }}</h4>
+    <div class="list-group">
+        {% for option in self.options %}
+            <button 
+                type="button"
+                class="list-group-item list-group-item-action">
+              {{ option.option_text }}
+            </button>
+        {% endfor %}
+    </div>
+    <h4>{{ self.second_part }}</h4>
+</div>

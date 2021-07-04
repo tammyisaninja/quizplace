@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+<div class="float-container">
+    {% for quiz in quizzes %}
+        <div class="float-child">
+            {% image quiz.quiz_image fill-900x400 as img %}
+            <div class="card col-sm" style="width: 18rem;">
+                <img class="card-img-top" src="{{ img.url }}" alt="{{ img.alt }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ quiz.custom_title }}</h5>
+                    <p class="card-text">{{ quiz.quiz_desc }}</p>
+                    <a href="{{ quiz.url }}" type="button" class="btn btn-primary">Play Now</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+    <h1>{{ self.custom_title }}</h1>
+    <h2>Progress:</h2>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    {% for block in self.content %}
+    <h4>Question {{ forloop.counter }}:</h4>
+        {% include_block block %}
+    {% endfor %}
+{% endblock content %}
